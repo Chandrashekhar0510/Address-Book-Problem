@@ -6,7 +6,7 @@ public class Person
 	String emailId;
 	String city;
 	String state;
-	double mobNumber;
+	String mobNumber;
 	int zipCode;
 
 	public String getName()
@@ -34,18 +34,38 @@ public class Person
 		return this.city;
 	}
 
+	public void setCity(String city)
+	{
+		this.city = city;
+	}
+
 	public String getState()
 	{
 		return this.state;
 	}
 
-	public double getMobName()
+	public void setState(String state)
+	{
+		this.state = state;
+	}
+
+	public String getMobNumber()
 	{
 		return this.mobNumber;
+	}
+
+	public void setMobNumber(String mobNumber)
+	{
+		this.mobNumber = mobNumber;
 	}
 
 	public int getZipCode()
 	{
 		return this.zipCode;
+	}
+
+	public void setZipCode(int zipCode)
+	{
+		this.zipCode = zipCode;
 	}
 }
