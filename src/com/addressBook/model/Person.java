@@ -1,71 +1,81 @@
 package com.addressBook.model;
 
-public class Person
+import java.lang.Comparable;
+import java.io.Serializable;
+
+public class Person implements Comparable<Person>,Serializable
 {
-	String name;
-	String emailId;
-	String city;
-	String state;
-	String mobNumber;
-	int zipCode;
+        private static final long serialVersionUID = 1L;
+        String firstName;
+        String lastName;
+        Address address;
+        String phoneNumber;
+                Person(){}
+                Person(String firstName, String lastName,Address address, String phoneNumber)
+                {
+                        this.firstName = firstName;
+                        this.lastName = lastName;
+                        this.address = address;
+                        this.phoneNumber = phoneNumber;
+                }
 
-	public String getName()
-	{
-		return this.name;
-	}
+                public String getFirstName()
+                {
+                        return this.firstName;
+                }
 
-	public void setName(String name)
-	{
-		this.name=name;
-	}
+                public void setFirstName( String firstName)
+                {
+                         this.firstName = firstName;
+                }
 
-	public String getEmailId()
-	{
-		return this.emailId;
-	}
+                public String getLastName()
+                {
+                        return this.lastName;
+                }
 
-	public void setEmailId(String emailId)
-	{
-		this.emailId=emailId;
-	}
+                public void setLastName( String lastName)
+               {
+                         this.lastName = lastName;
+               }
 
-	public String getCity()
-	{
-		return this.city;
-	}
+                public Address getAddress()
+                {
+                        return this.address;
+                }
 
-	public void setCity(String city)
-	{
-		this.city = city;
-	}
 
-	public String getState()
-	{
-		return this.state;
-	}
+                public void setAddress(Address address)
+                {
+                        this.address = address;
+                }
 
-	public void setState(String state)
-	{
-		this.state = state;
-	}
+                public String getPhoneNumber()
+                {
+                        return this.phoneNumber;
+                }
+		public void setPhoneNumber(String phoneNumber)
+                {
+                        this.phoneNumber = phoneNumber;
 
-	public String getMobNumber()
-	{
-		return this.mobNumber;
-	}
+                }
 
-	public void setMobNumber(String mobNumber)
-	{
-		this.mobNumber = mobNumber;
-	}
+                public String toString()
+                {
+                        return this.firstName +" "+ this.lastName +"\n"+ this.phoneNumber +"\n"+ this.address.toString();
+                }
 
-	public int getZipCode()
-	{
-		return this.zipCode;
-	}
+                public int compareTo(Person person)
+                {
+                        if(this.address.getZip() > person.address.getZip())
+                        {
+                                return 1;
+                        }
+                        if(this.address.getZip() < person.address.getZip())
+                        {
+                                return -1;
+                        }
+                        return 0;
 
-	public void setZipCode(int zipCode)
-	{
-		this.zipCode = zipCode;
-	}
+                }
 }
